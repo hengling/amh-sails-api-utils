@@ -1,38 +1,23 @@
-## Babel Starter Kit Change Log
+## CHANGELOG
 
 All notable changes to this project will be documented in this file.
 
-### [Unreleased][unreleased]
+### [unreleased]
 
-- Allow to execute tests in a browser environment (PLANNED)
+- Unit tests (PLANNED)
+- Authentication
+- Encryption
 
-### [v1.2.0] - 2016-05-04
+### [v0.0.2] - 2017-11-01
 
-- Add `tools/build.js` script
-- Build source files into `dist` folder
-- Update npm modules
-- Publish as CommonJS, ES2015 and UMD via [Rollup](http://rollupjs.org/). See `tools/build.js`.
+- added __GenericException__, which is an extensible exception class. It sets a flag to help other components
+in distinguishing it from other errors. 
+- added __ResponseHelper__, which is a generic utility that provides customized responses.
+- added __CrudRepository__, which is an extensible class which holds the _CRUD_ methods
+  * findAll, findAllWithDeps, findOne, findOneWithDeps, create, update and destroy 
 
-### [v1.1.2] - 2016-04-03
+### [v0.0.1] - 2017-11-01
 
-- Add `npm run test:watch` npm script for running tests in watch mode
-- Add a recipe: Testing with `mocha` and `jsdom` 
-- Add a recipe: Throwing errors with FB's `invariant` (`fbjs`) library
-- Update `eslint` and `babel-eslint` npm modules to the latest versions
-- Update unit test code sample
-- Add [CONTRIBUTING.md](CONTRIBUTING.md) and [CHANGELOG.md](CHANGELOG.md) files
-
-### [v1.1.0] - 2016-03-31
-
-- Add code coverage in unit tests with [Istanbul](https://github.com/gotwarlost/istanbul) and [Coveralls](https://coveralls.io/) [#8](https://github.com/kriasoft/babel-starter-kit/pull/8)
-
-### [v1.0.0] - 2016-03-30
-
-- Clean up the code and `package.json` file, update project dependencies
-- Integrate [Easystatic](https://easystatic.com) that generates a static site from the `docs/*.md` files
-
-[unreleased]: https://github.com/kriasoft/babel-starter-kit/compare/v1.2.0...HEAD
-[v1.2.0]: https://github.com/kriasoft/babel-starter-kit/compare/v1.1.2...v1.2.0
-[v1.1.2]: https://github.com/kriasoft/babel-starter-kit/compare/v1.1.0...v1.1.2
-[v1.1.0]: https://github.com/kriasoft/babel-starter-kit/compare/v1.0.0...v1.1.0
-[v1.0.0]: https://github.com/kriasoft/babel-starter-kit/compare/v0.1.1...v1.0.0
+- added __RequestHelper__, which is a generic utility that makes easier to deal with _req_ object. 
+- added __RequestFilter__, which is an extensible class that helps getting request params
+and building a [Waterline ORM](https://github.com/balderdashy/waterline) filter criteria.
