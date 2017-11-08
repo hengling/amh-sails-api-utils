@@ -8,6 +8,12 @@ All notable changes to this project will be documented in this file.
 - Authentication
 - Encryption
 
+### [v0.1.0] -` 2017-11-08
+
+- Refactoring some classes
+- Unit testes (partial)
+
+
 ### [v0.0.2] - 2017-11-01
 
 - added __GenericException__, which is an extensible exception class. It sets a flag to help other components
