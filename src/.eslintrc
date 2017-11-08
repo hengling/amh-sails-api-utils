@@ -17,6 +17,10 @@
         "skipBlankLines": true
       }
     ],
+    "no-underscore-dangle": "off",
+    "radix": "off",
+    "consistent-return": "off",
+    "comma-dangle": "off",
     "no-unused-expressions": "off",
     "padded-blocks": "off"
   }

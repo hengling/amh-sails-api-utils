@@ -5,8 +5,4 @@ export default class GenericException extends Error {
 
     this.class = 'GenericException';
   }
-
-  get class() {
-    return this.class;
-  }
 }

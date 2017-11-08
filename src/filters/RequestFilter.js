@@ -3,24 +3,29 @@
  */
 import RequestHelper from '../helpers/RequestHelper';
 
-const PAGE = 'page';
-const SIZE = 'size';
-const SORT = 'sort';
-const DIR = 'dir';
-
 export default class RequestFilter {
 
   constructor(req) {
+  
+    this.PAGE = 'page';
+    this.SIZE = 'size';
+    this.SORT = 'sort';
+    this.DIR = 'dir';
+  
+    this.DEFAULT_PAGE = 0;
+    this.DEFAULT_SIZE = 5;
+    this.DEFAULT_DIR = 'ASC';
+    
     this.req = req;
     this.requestHelper = new RequestHelper(req);
-    this.criteria = this.criarCriteriaDefault();
+    this.criteria = this.createDefaultCriteria();
   }
 
-  criarCriteriaDefault() {
-    return this.criarCriteria({});
+  createDefaultCriteria() {
+    return this.createCriteria({});
   }
 
-  criarCriteria(where) {
+  createCriteria(where) {
     const criteria = {
       skip: this.getPage() * this.getSize(),
       limit: this.getSize(),
@@ -48,22 +53,22 @@ export default class RequestFilter {
   }
 
   getPage() {
-    const page = this.requestHelper.getParam(PAGE);
-    return page ? page - 1 : 0;
+    const page = this.requestHelper.getParam(this.PAGE);
+    return !page ? this.DEFAULT_PAGE : page - 1;
   }
 
   getSize() {
-    const size = this.requestHelper.getParam(SIZE);
-    return size ? size : 5;
+    const size = this.requestHelper.getParam(this.SIZE);
+    return !size ? this.DEFAULT_SIZE : size;
   }
 
   getDir() {
-    const dir = this.requestHelper.getParam(DIR);
-    return dir ? dir : 'ASC';
+    const dir = this.requestHelper.getParam(this.DIR);
+    return !dir ? this.DEFAULT_DIR : dir;
   }
 
   getSort() {
-    const sort = this.requestHelper.getParam(SORT);
+    const sort = this.requestHelper.getParam(this.SORT);
     const dir = this.getDir();
 
     return sort ? `${sort} ${dir}` : '';

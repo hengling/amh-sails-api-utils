@@ -2,30 +2,34 @@ import RequestFilter from '../filters/RequestFilter';
 
 export default class ResponseHelper {
 
-  static SERVER_ERROR = 500;
-
   constructor(res) {
     this.res = res;
+  
+    this.SERVER_ERROR = 500;
   }
 
-  enviarErro(err) {
-    sails.log.error(err);
-    this.res.status(ResponseHelper.SERVER_ERROR);
+  sendError(err) {
+    global.sails.log.error(err);
+    
     if (err.class === 'GenericException') {
       return this.res.jsonx({ message: this.res.__(err.message) });
     }
-    this.res.jsonx({ message: this.res.__('generic.error') });
+    
+    this.res.status(this.SERVER_ERROR);
+    this.res.json({
+      message: this.res.__('generic.error')
+    });
   }
 
-  enviarConteudoPaginado(content) {
+  sendPaginatedContent(content) {
     const requestFilter = new RequestFilter(this.res.req);
-    const data = {
-      content,
-      page: parseInt(requestFilter.getPage() + 1),
-      size: parseInt(requestFilter.getSize()),
-      totalElements: content.length,
-    };
-
-    return this.res.json({ data });
+    this.res.json({
+      data: {
+        content,
+        page: parseInt(requestFilter.getPage() + 1),
+        size: parseInt(requestFilter.getSize()),
+        totalElements: content.length,
+      }
+    });
   }
 }

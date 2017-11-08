@@ -8,7 +8,7 @@
  */
 
 // Exceptions - src/exceptions
-export GenericException from './exception/GenericException';
+export GenericException from './exceptions/GenericException';
 
 // Filters - src/filters
 export RequestFilter from './filters/RequestFilter';
