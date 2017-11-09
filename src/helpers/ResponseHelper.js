@@ -6,6 +6,7 @@ export default class ResponseHelper {
     this.res = res;
   
     this.SERVER_ERROR = 500;
+    this.UNAUTHORIZED = 401;
   }
 
   sendError(err) {
@@ -31,5 +32,10 @@ export default class ResponseHelper {
         totalElements: content.length,
       }
     });
+  }
+  
+  sendUnauthorized() {
+    this.res.status(this.UNAUTHORIZED);
+    this.res.send();
   }
 }

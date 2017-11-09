@@ -7,4 +7,8 @@ export default class RequestHelper {
   getParam(nParam) {
     return this.req.param(nParam);
   }
+  
+  getHeader(nHeader) {
+    return this.req.headers[nHeader];
+  }
 }

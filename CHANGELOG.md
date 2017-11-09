@@ -8,6 +8,11 @@ All notable changes to this project will be documented in this file.
 - Authentication
 - Encryption
 
+### [v0.1.1] -` 2017-11-09
+
+- _RequestHelper_: Adding a method for retrieving the readers from request
+- _ResponseHelper_: Adding a method to enable unauthorized responses 
+
 ### [v0.1.0] -` 2017-11-08
 
 - Refactoring some classes
