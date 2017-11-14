@@ -14,13 +14,13 @@ export default class ResponseHelper {
     
     this.res.status(this.SERVER_ERROR);
     
+    let errMessage = 'generic.error';
     if (err.class === 'GenericException') {
-      return this.res.jsonx({ message: this.res.__(err.message) });
+      errMessage = this.res.__(err.message);
     }
-    
-    this.res.json({
-      message: this.res.__('generic.error')
-    });
+  
+    const data = { message: this.res.__(errMessage) };
+    this.res.json(data);
   }
 
   sendPaginatedContent(content) {

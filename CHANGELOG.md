@@ -8,6 +8,11 @@ All notable changes to this project will be documented in this file.
 - Authentication
 - Encryption
 
+### [v0.1.3] -` 2017-11-14
+
+- Bug fix: the method _ResponseHelper.sendError_ wasn't setting the error message on
+response.
+
 ### [v0.1.2] -` 2017-11-14
 
 - Bug fix: the method _ResponseHelper.sendError_ wasn't setting response status
