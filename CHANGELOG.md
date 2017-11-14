@@ -8,7 +8,11 @@ All notable changes to this project will be documented in this file.
 - Authentication
 - Encryption
 
-### [v0.1.3] -` 2017-11-14
+### [v0.1.5] -` 2017-11-14
+
+- Feature: adding support for totalElements on _ResponseHelper.sendPaginatedContent_.
+
+### [v0.1.3 - v0.1.4] -` 2017-11-14
 
 - Bug fix: the method _ResponseHelper.sendError_ wasn't setting the error message on
 response.

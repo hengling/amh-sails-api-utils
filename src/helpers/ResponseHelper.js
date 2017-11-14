@@ -20,17 +20,18 @@ export default class ResponseHelper {
     }
   
     const data = { message: this.res.__(errMessage) };
-    this.res.json(data);
+    this.res.json({ data });
   }
 
-  sendPaginatedContent(content) {
+  sendPaginatedContent(content, totalElements) {
     const requestFilter = new RequestFilter(this.res.req);
     this.res.json({
       data: {
         content,
         page: parseInt(requestFilter.getPage() + 1),
         size: parseInt(requestFilter.getSize()),
-        totalElements: content.length,
+        totalElementsPage: content.length,
+        totalElements,
       }
     });
   }
