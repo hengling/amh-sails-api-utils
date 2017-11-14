@@ -12,11 +12,12 @@ export default class ResponseHelper {
   sendError(err) {
     global.sails.log.error(err);
     
+    this.res.status(this.SERVER_ERROR);
+    
     if (err.class === 'GenericException') {
       return this.res.jsonx({ message: this.res.__(err.message) });
     }
     
-    this.res.status(this.SERVER_ERROR);
     this.res.json({
       message: this.res.__('generic.error')
     });

@@ -8,6 +8,11 @@ All notable changes to this project will be documented in this file.
 - Authentication
 - Encryption
 
+### [v0.1.2] -` 2017-11-14
+
+- Bug fix: the method _ResponseHelper.sendError_ wasn't setting response status
+for _GenericException_.
+
 ### [v0.1.1] -` 2017-11-09
 
 - _RequestHelper_: Adding a method for retrieving the readers from request
