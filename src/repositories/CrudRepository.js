@@ -29,6 +29,24 @@ export default class CrudRepository {
   findAllWithDeps(criteria, deps) {
     return this.model.find(criteria).populate(deps);
   }
+  
+  findAllWithDepsAndCount(criteria, deps) {
+    let totalElements = 0;
+    let records = [];
+    
+    return new Promise((resolve, reject) => {
+      this.findAllWithDeps(criteria, deps)
+        .then((result) => {
+          records = result;
+          return this.model.count(criteria);
+        })
+        .then((count) => {
+          totalElements = count;
+          resolve({ records, totalElements });
+        })
+        .catch(err => reject(err));
+    });
+  }
 
   findOne(param) {
     return this.model.findOne(param);

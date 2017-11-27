@@ -8,6 +8,11 @@ All notable changes to this project will be documented in this file.
 - Authentication
 - Encryption
 
+### [v0.1.7] -` 2017-11-27
+
+- Feature: adding a new method _CrudRepository.findAllWithDepsAndCount_ which returns the records
+that matches the criteria, its dependencies and the total of elements that matches the specified criteria on database.
+
 ### [v0.1.6] -` 2017-11-16
 
 - Feature: adding a new method _CrudRepository.findAllAndCount_ which returns the records
