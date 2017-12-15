@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "amh-sails-api-utils",
-  "version": "0.1.8",
+  "version": "0.1.20",
   "description": "Reusable utilities for speeding up the development of API's built on top of Sails.js.",
   "author": "Adolfo Marangoni Hengling <adolfohengling@gmail.com> (https://github.com/hengling/amh-sails-api-utils.git)",
   "contributors": [],

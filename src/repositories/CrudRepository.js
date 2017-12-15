@@ -69,8 +69,8 @@ export default class CrudRepository {
   }
   
   static removePaginationAttrs(criteria) {
-    delete criteria.page;
-    delete criteria.size;
+    delete criteria.skip;
+    delete criteria.limit;
     
     return criteria;
   }

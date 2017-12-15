@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file.
 - Authentication
 - Encryption
 
-### [v0.1.8] -` 2017-12-14
+### [v0.1.8, v0.1.9, v0.1.20] -` 2017-12-14
 
 - Bug fix: removing pagination attributes when counting records on database. This was preventing the real number
  of elements to be returned by _CrudRepository.findAllAndCount_ and _CrudRepository.findAllWithDepsAndCount_.
