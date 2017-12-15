@@ -16,7 +16,7 @@ export default class CrudRepository {
       this.findAll(criteria)
         .then((result) => {
           records = result;
-          return this.model.count(criteria);
+          return this.model.count(CrudRepository.removePaginationAttrs(criteria));
         })
         .then((count) => {
           totalElements = count;
@@ -38,7 +38,7 @@ export default class CrudRepository {
       this.findAllWithDeps(criteria, deps)
         .then((result) => {
           records = result;
-          return this.model.count(criteria);
+          return this.model.count(CrudRepository.removePaginationAttrs(criteria));
         })
         .then((count) => {
           totalElements = count;
@@ -66,5 +66,12 @@ export default class CrudRepository {
 
   destroy(key) {
     return this.model.destroy(key);
+  }
+  
+  static removePaginationAttrs(criteria) {
+    delete criteria.page;
+    delete criteria.size;
+    
+    return criteria;
   }
 }
